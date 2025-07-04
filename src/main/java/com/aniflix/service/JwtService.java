@@ -20,11 +20,11 @@ import java.util.function.Function;
 @RequiredArgsConstructor
 public class JwtService {
 
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
 
-    private String SECRET_KEY = "11a8786e07e6147a608efaf679215443713f4387c4ac1407659cc006af62291f";
-
-
-    private Long expiration = 300000L;
+    @Value("${jwt.expiration}")
+    private Long expiration;
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);

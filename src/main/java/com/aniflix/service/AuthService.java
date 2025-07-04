@@ -23,7 +23,7 @@ public class AuthService {
 
     public ResponseDto register(RegisterRequest request) {
         var user = User.builder()
-                .username(request.getFirstname())
+                .username(request.getUsername())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
